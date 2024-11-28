@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء حساب جديد - Spherely</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1877f2;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: #f0f2f5;
+    }
+    .gender-choice {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .gender-choice input {
+      margin-right: 8px;
+    }
+    .gender-choice label {
+      font-size: 14px;
+    }
+    .button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #155a8a;
+    }
+    .signup-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .signup-link a {
+      color: #1877f2;
+      text-decoration: none;
+    }
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    مرحبًا بك في Spherely
+  </header>
+  <div class="container">
+    <h2>إنشاء حساب جديد</h2>
+    <form id="signup-form">
+      <input type="text" id="first-name" class="input-field" placeholder="الاسم الأول" required>
+      <input type="text" id="last-name" class="input-field" placeholder="اسم العائلة" required>
+      <div class="gender-choice">
+        <div>
+          <input type="radio" id="male" name="gender" value="ذكر" required> <label for="male">ذكر</label>
+        </div>
+        <div>
+          <input type="radio" id="female" name="gender" value="أنثى" required> <label for="female">أنثى</label>
+        </div>
+      </div>
+      <button type="submit" class="button">تسجيل</button>
+    </form>
+    <div class="signup-link">
+      <p>هل لديك حساب؟ <a href="index.html">تسجيل دخول</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const firstName = document.getElementById("first-name").value;
+      const lastName = document.getElementById("last-name").value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+
+      localStorage.setItem("firstName", firstName);
+      localStorage.setItem("lastName", lastName);
+      localStorage.setItem("gender", gender);
+
+      window.location.href = "index.html";
+    });
+  </script>
+
+</body></html>

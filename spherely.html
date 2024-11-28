@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spherely</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1877f2;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: #f0f2f5;
+    }
+    .button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #155a8a;
+    }
+    .signup-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .signup-link a {
+      color: #1877f2;
+      text-decoration: none;
+    }
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    مرحبًا بك في Spherely
+  </header>
+  <div class="container">
+    <h2>تسجيل الدخول</h2>
+    <form id="login-form">
+      <input type="text" class="input-field" id="username" placeholder="اسم المستخدم" required>
+      <input type="password" class="input-field" id="password" placeholder="كلمة السر" required>
+      <button type="submit" class="button">تسجيل دخول</button>
+    </form>
+    <div class="signup-link">
+      <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب جديد</a></p>
+    </div>
+  </div>
+
+  <script>
+    if (localStorage.getItem("firstName") && localStorage.getItem("lastName") && localStorage.getItem("gender")) {
+      alert("تم تسجيل بياناتك بنجاح. يمكنك الآن تسجيل الدخول.");
+    }
+
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === localStorage.getItem("firstName") && password === localStorage.getItem("lastName")) {
+        alert("تم تسجيل الدخول بنجاح!");
+      } else {
+        alert("اسم المستخدم أو كلمة المرور غير صحيحة.");
+      }
+    });
+  </script>
+
+</body></html>
